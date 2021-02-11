@@ -8,6 +8,7 @@ public class CharacterController2D : MonoBehaviour
 {
 
     [SerializeField] private float runSpeed;
+    [SerializeField] private float jumpSpeed;
 
     private Rigidbody2D rigidbody;
     private Vector2 myVelocity;
@@ -30,9 +31,17 @@ public class CharacterController2D : MonoBehaviour
         rigidbody.velocity = myVelocity;
     }
 
+    private void PerformJump()
+    {
+        myVelocity = rigidbody.velocity;
+        myVelocity.y = jumpSpeed;
+        rigidbody.velocity = myVelocity;
+        Debug.Log("jump");
+    }
+
     public void OnJump(InputAction.CallbackContext input)
     {
-        Debug.Log(input);
+        if (input.started) PerformJump();
     }
 
     public void OnMove(InputAction.CallbackContext input)
