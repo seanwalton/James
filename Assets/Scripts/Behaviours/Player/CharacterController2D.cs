@@ -52,10 +52,10 @@ public class CharacterController2D : MonoBehaviour
 
     private void PerformJump()
     {
+        if (!onGround) return;
         myVelocity = rigidbody.velocity;
         myVelocity.y = jumpSpeed;
         rigidbody.velocity = myVelocity;
-        Debug.Log("jump");
     }
 
     public void OnJump(InputAction.CallbackContext input)
