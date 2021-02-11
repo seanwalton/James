@@ -30,8 +30,13 @@ public class CharacterController2D : MonoBehaviour
         rigidbody.velocity = myVelocity;
     }
 
-    public void OnMove(InputValue input)
+    public void OnJump(InputAction.CallbackContext input)
     {
-        currentInputDirection = input.Get<Vector2>();
+        Debug.Log(input);
+    }
+
+    public void OnMove(InputAction.CallbackContext input)
+    {
+        currentInputDirection = input.ReadValue<Vector2>();
     }
 }
