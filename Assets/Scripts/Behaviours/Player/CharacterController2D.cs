@@ -41,6 +41,7 @@ public class CharacterController2D : MonoBehaviour
     private void FixedUpdate()
     {
         GroundCheck();
+        
     }
 
     private void GroundCheck()
@@ -54,18 +55,17 @@ public class CharacterController2D : MonoBehaviour
         myVelocity = rigidbody.velocity;
         myVelocity.x = direction.x * runSpeed;
         rigidbody.velocity = myVelocity;
-
         CheckFacing();
     }
 
 
     private void CheckFacing()
     {
-        if (facingRight && (rigidbody.velocity.x < 0f))
+        if (facingRight && (currentInputDirection.x < 0f))
         {
             Flip();
         }
-        else if (!facingRight && (rigidbody.velocity.x > 0f))
+        else if (!facingRight && (currentInputDirection.x > 0f))
         {
             Flip();
         }
