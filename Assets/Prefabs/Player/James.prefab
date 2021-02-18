@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 5337023349957201339}
   - component: {fileID: 7168924807258576350}
   - component: {fileID: 4562175462572022751}
+  - component: {fileID: 7558425193578196228}
   - component: {fileID: 5337023349957201334}
   - component: {fileID: 5337023349957201336}
   m_Layer: 8
@@ -326,6 +327,32 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 512
+  OnJumpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7558425193578196228}
+        m_MethodName: AddJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7558425193578196228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337023349957201335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe5daf3bfff0554589d723043d6b47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &5337023349957201334
 Rigidbody2D:
   serializedVersion: 4

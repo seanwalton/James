@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour
@@ -14,6 +15,9 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform groundCheckTr;
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask groundLayers;
+
+    public UnityEvent OnJumpEvent;
+
 
     private Rigidbody2D rigidbody;
     private Vector2 myVelocity;
@@ -82,6 +86,7 @@ public class CharacterController2D : MonoBehaviour
     private void PerformJump()
     {
         if (!onGround) return;
+        OnJumpEvent?.Invoke();
         myVelocity = rigidbody.velocity;
         myVelocity.y = jumpSpeed;
         rigidbody.velocity = myVelocity;
