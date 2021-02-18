@@ -7,38 +7,44 @@ using TMPro;
 public class JumpCounterUI : MonoBehaviour
 {
     private TextMeshProUGUI myText;
+    private CharacterController2D characterController;
     private JumpCounter jumpCounter;
-
-    private int lastJumps;
+    private int numJumps;
 
     private void Awake()
     {
         myText = GetComponent<TextMeshProUGUI>();
-        jumpCounter = FindObjectOfType<JumpCounter>();
+        characterController = FindObjectOfType<CharacterController2D>();
+        characterController.OnJumpEvent.AddListener(AddJump);
     }
 
     private void Start()
     {
+        numJumps = 0;
         UpdateJumpUI();
     }
 
     private void UpdateJumpUI()
-    {
-        lastJumps = jumpCounter.NumberOfJumps;
-        SetText(lastJumps);
+    {     
+        SetText(numJumps);
     }
-
-    private void Update()
+  
+    public void AddJump()
     {
-        if (lastJumps != jumpCounter.NumberOfJumps)
-        {
-            UpdateJumpUI();
-        }
+        numJumps++;
+        UpdateJumpUI();
     }
 
     private void SetText(int numJumps)
     {
-        myText.text = numJumps.ToString() + " jumps";
+        if (numJumps == 1)
+        {
+            myText.text = numJumps.ToString() + " Jump";
+        }
+        else
+        {
+            myText.text = numJumps.ToString() + " Jumps";
+        }   
     }
 
 
