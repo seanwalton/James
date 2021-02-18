@@ -658,11 +658,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4562175462572022751, guid: 7fcdcd62702343843a0d7bca606aced0,
-        type: 3}
-      propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5337023349957201335, guid: 7fcdcd62702343843a0d7bca606aced0,
         type: 3}
       propertyPath: m_Name
@@ -708,6 +703,5 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7558425193578196228, guid: 7fcdcd62702343843a0d7bca606aced0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcdcd62702343843a0d7bca606aced0, type: 3}
