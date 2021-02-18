@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,11 +21,16 @@ public class CharacterController2D : MonoBehaviour
     private bool onGround;
     private int numColliders;
     private Collider2D[] colliders = new Collider2D[10];
+    private bool facingRight;
+    private Vector3 newScale;
+    private Transform tr;
     
     private void Awake()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
         onGround = false;
+        tr = transform;
+        facingRight = tr.localScale.x == 1;
     }
 
     private void Update()
@@ -48,6 +54,29 @@ public class CharacterController2D : MonoBehaviour
         myVelocity = rigidbody.velocity;
         myVelocity.x = direction.x * runSpeed;
         rigidbody.velocity = myVelocity;
+
+        CheckFacing();
+    }
+
+
+    private void CheckFacing()
+    {
+        if (facingRight && (rigidbody.velocity.x < 0f))
+        {
+            Flip();
+        }
+        else if (!facingRight && (rigidbody.velocity.x > 0f))
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        newScale = tr.localScale;
+        newScale.x *= -1f;
+        tr.localScale = newScale;
     }
 
     private void PerformJump()
