@@ -28,7 +28,10 @@ public class CharacterController2D : MonoBehaviour
     private bool facingRight;
     private Vector3 newScale;
     private Transform tr;
-    
+
+
+    public float GetJumpSpeed() => jumpSpeed;
+
     private void Awake()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -44,8 +47,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GroundCheck();
-        
+        GroundCheck();        
     }
 
     private void GroundCheck()

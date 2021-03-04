@@ -242,7 +242,7 @@ MonoBehaviour:
   runSpeed: 1
   jumpSpeed: 5
   groundCheckTr: {fileID: 7901409061911028998}
-  groundCheckRadius: 0.005
+  groundCheckRadius: 0.01
   groundLayers:
     serializedVersion: 2
     m_Bits: 512
@@ -288,7 +288,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
