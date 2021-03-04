@@ -589,6 +589,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16776068836193353, guid: be6b8b762316a894abbb4e9f013cf491,
+        type: 3}
+      propertyPath: bounciness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 703746566730054594, guid: be6b8b762316a894abbb4e9f013cf491,
         type: 3}
       propertyPath: m_Name
