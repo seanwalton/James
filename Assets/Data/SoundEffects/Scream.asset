@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6efe11b6c43124d9bf07527ef8bea6, type: 3}
+  m_Name: Scream
+  m_EditorClassIdentifier: 
+  clip:
+  - {fileID: 8300000, guid: 8d0a57c1ba5b1b944b35ba6b694623a8, type: 3}
+  - {fileID: 8300000, guid: 6cab40fb91930254a98c4cfdd3641a99, type: 3}
+  - {fileID: 8300000, guid: bb43c0b4ef5e42543bab449a25f73514, type: 3}
+  - {fileID: 8300000, guid: ab4cdfc954bdb4e49aba7b9f6fbe63ba, type: 3}
+  - {fileID: 8300000, guid: c6306485d080dee418ac6a6fe33d083d, type: 3}
+  - {fileID: 8300000, guid: aaba2b32d4fcd23488a17ee220d19c53, type: 3}
+  - {fileID: 8300000, guid: 67cb188ce6bf3f145ab2e67e4393732e, type: 3}
+  - {fileID: 8300000, guid: ee76eeeaed46e4a45a2a670760d6e24b, type: 3}
+  - {fileID: 8300000, guid: e3afb66aba9b847478aa981c56d867ba, type: 3}
+  - {fileID: 8300000, guid: 0acd76234146aa34fb9a87dd641dcb45, type: 3}
+  - {fileID: 8300000, guid: df38e23cc402eee4d952da11b5ba20f9, type: 3}
+  - {fileID: 8300000, guid: 6131d9317255d3e40879c7295b6df73b, type: 3}
+  - {fileID: 8300000, guid: 3fb0eda0e3a82d84a999e2a23882a1d1, type: 3}
+  - {fileID: 8300000, guid: 7969855b9780dd54f8f3cf6cce3e0bb5, type: 3}
+  volume: 1
+  pitch: 1
