@@ -241,6 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 1
   jumpSpeed: 5
+  doubleJumpModifier: 0.2
+  reactionTime: 0.2
   groundCheckTr: {fileID: 7901409061911028998}
   groundCheckRadius: 0.01
   groundLayers:

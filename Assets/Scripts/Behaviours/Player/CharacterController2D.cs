@@ -11,6 +11,8 @@ public class CharacterController2D : MonoBehaviour
 
     [SerializeField] private float runSpeed;
     [SerializeField] private float jumpSpeed;
+    [SerializeField] private float doubleJumpModifier;
+    [SerializeField] private float reactionTime;
 
     [SerializeField] private Transform groundCheckTr;
     [SerializeField] private float groundCheckRadius;
@@ -28,7 +30,11 @@ public class CharacterController2D : MonoBehaviour
     private bool facingRight;
     private Vector3 newScale;
     private Transform tr;
+    private int numJumps;
+    private float timeSinceGrounded;
+    private bool lastOnGround;
 
+    private Vector2 tempV2 = new Vector2();
 
     public float GetJumpSpeed() => jumpSpeed;
 
@@ -36,13 +42,17 @@ public class CharacterController2D : MonoBehaviour
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
         onGround = false;
+        lastOnGround = false;
         tr = transform;
         facingRight = tr.localScale.x == 1;
+        numJumps = 0;
+        timeSinceGrounded = float.MaxValue;
     }
 
     private void Update()
     {
         Move(currentInputDirection);
+        timeSinceGrounded += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -52,8 +62,12 @@ public class CharacterController2D : MonoBehaviour
 
     private void GroundCheck()
     {
+        //Show this with local variable instead (make numColliders local)
         numColliders = Physics2D.OverlapCircleNonAlloc(groundCheckTr.position, groundCheckRadius, colliders, groundLayers);
         onGround = (numColliders > 0);
+        if ((onGround != lastOnGround) && onGround) timeSinceGrounded = 0f;
+        lastOnGround = onGround;
+       
     }
 
     private void Move(Vector2 direction)
@@ -90,8 +104,10 @@ public class CharacterController2D : MonoBehaviour
         if (!onGround) return;
         OnJumpEvent?.Invoke();
         myVelocity = rigidbody.velocity;
-        myVelocity.y = jumpSpeed;
+        myVelocity.y = jumpSpeed * (1.0f + (doubleJumpModifier * numJumps));
         rigidbody.velocity = myVelocity;
+        numJumps++;
+        if (timeSinceGrounded > reactionTime) numJumps = 0;
     }
 
     public void OnJump(InputAction.CallbackContext input)
